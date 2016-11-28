@@ -28,14 +28,19 @@ AppAsset::register($this);
 <div class="wrap">
     <?php
     NavBar::begin([
-        'brandLabel' => 'My Company',
+        'brandLabel' => 'Admin panel',
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
             'class' => 'navbar-inverse navbar-fixed-top',
         ],
     ]);
     $menuItems = [
-        ['label' => 'Home', 'url' => ['/site/index']],
+        ['label' => 'Main', 'url' => ['/site/index']],
+        ['label' => 'Projects', 'url' => ['/site/index']],
+        ['label' => 'Contacts', 'url' => ['/site/index']],
+        ['label' => 'Achievements', 'url' => ['/site/index']],
+        ['label' => 'Content', 'url' => ['/site/index']],
+        ['label' => 'Activity', 'url' => ['/site/index']],
     ];
     if (Yii::$app->user->isGuest) {
         $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
@@ -67,9 +72,7 @@ AppAsset::register($this);
 
 <footer class="footer">
     <div class="container">
-        <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
-
-        <p class="pull-right"><?= Yii::powered() ?></p>
+        <p class="text-center">&copy; Denys Korniichuk <?= date('Y') ?></p>
     </div>
 </footer>
 
