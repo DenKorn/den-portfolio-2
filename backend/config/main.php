@@ -7,14 +7,16 @@ $params = array_merge(
 );
 
 return [
-    'id' => 'app-backend',
+    'id' => 'portfolio-app-backend',
     'basePath' => dirname(__DIR__),
+    'homeUrl' => '/den-portfolio-2/admin',
     'controllerNamespace' => 'backend\controllers',
     'bootstrap' => ['log'],
     'modules' => [],
     'components' => [
         'request' => [
             'csrfParam' => '_csrf-backend',
+            'baseUrl' => '/den-portfolio-2/admin',
         ],
         'user' => [
             'identityClass' => 'common\models\User',
@@ -22,8 +24,7 @@ return [
             'identityCookie' => ['name' => '_identity-backend', 'httpOnly' => true],
         ],
         'session' => [
-            // this is the name of the session cookie used for login on the backend
-            'name' => 'advanced-backend',
+            'name' => 'admin-cookie',
         ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
@@ -37,14 +38,13 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
-        /*
+
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
             ],
         ],
-        */
     ],
     'params' => $params,
 ];
