@@ -36,10 +36,10 @@ AppAsset::register($this);
     ]);
     $menuItems = [
         ['label' => 'Main', 'url' => ['/site/index']],
-        ['label' => 'Projects', 'url' => ['/site/index']],
-        ['label' => 'Contacts', 'url' => ['/site/index']],
-        ['label' => 'Achievements', 'url' => ['/site/index']],
-        ['label' => 'Content', 'url' => ['/site/index']],
+        ['label' => 'Projects', 'url' => ['/projects/index']],
+        ['label' => 'Contacts', 'url' => ['/contacts/index']],
+        ['label' => 'Achievements', 'url' => ['/achievements/index']],
+        ['label' => 'Content', 'url' => ['/common/index']],
         ['label' => 'Activity', 'url' => ['/site/index']],
     ];
     if (Yii::$app->user->isGuest) {

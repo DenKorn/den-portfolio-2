@@ -10,7 +10,7 @@ use yii\grid\GridView;
 $this->title = 'Common Infos';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="common-info-index">
+<div class="common-info-index" style="max-width: 100%">
 
     <h1><?= Html::encode($this->title) ?></h1>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
