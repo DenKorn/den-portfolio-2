@@ -23,6 +23,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'method' => 'post',
             ],
         ]) ?>
+        <?= Html::a('Upload new image', ['upload-image', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
     </p>
 
     <?= DetailView::widget([
@@ -36,5 +37,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'link',
         ],
     ]) ?>
+    Small project screen:<br>
+    <?= Html::img("@apppublicstorage/small/$model->id.jpg"); ?>
 
 </div>

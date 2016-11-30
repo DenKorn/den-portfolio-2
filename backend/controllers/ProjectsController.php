@@ -1,5 +1,5 @@
 <?php
-
+//изоображения именуются по id проекта
 namespace backend\controllers;
 
 use Yii;
@@ -91,6 +91,12 @@ class ProjectsController extends Controller
                 'model' => $model,
             ]);
         }
+    }
+
+    public function actionUploadImage($id)
+    {
+        //Todo uploading image of project
+        return 0;
     }
 
     /**
