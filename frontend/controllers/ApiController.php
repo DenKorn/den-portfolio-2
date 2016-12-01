@@ -2,8 +2,17 @@
 
 namespace frontend\controllers;
 
+use Yii;
+use yii\web\Response;
+
 class ApiController extends \yii\web\Controller
 {
+    public function beforeAction($action)
+    {
+        Yii::$app->response->format = Response::FORMAT_XML;
+        return parent::beforeAction($action);
+    }
+
     public function actionContactForm()
     {
         return $this->render('contact-form');
@@ -31,12 +40,12 @@ class ApiController extends \yii\web\Controller
 
     public function actionGetSkills()
     {
-        return $this->render('get-skills');
+        return 0;
     }
 
     public function actionIndex()
     {
-        return $this->render('index');
+        return ['lol' => 123, 'piz' => 321];
     }
 
     public function actionSendRequest()
