@@ -37,7 +37,10 @@ $this->params['breadcrumbs'][] = $this->title;
             'link',
         ],
     ]) ?>
-    Small project screen:<br>
-    <?= Html::img("@apppublicstorage/small/$model->id.jpg"); ?>
+    <h3>Small project screen:</h3>
+
+    <?=  Html::img( $model->has_image == 1 ?
+        "@apppublicstorage/projects/$model->id.jpg" :
+        "@apppublicstorage/projects/default.png"); ?>
 
 </div>

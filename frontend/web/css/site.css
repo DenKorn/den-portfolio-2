@@ -1,6 +1,10 @@
 html,
 body {
     height: 100%;
+   /* background-color: red;*/
+    /*background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAI0lEQVQIW2NkwAT/GdHE/gP5jMiCYAGQIpggXAAmiCIAEgQAAE4FBbECyZcAAAAASUVORK5CYII=) #222; */
+    background: #111;
+    overflow: hidden;
 }
 
 .wrap {
@@ -16,8 +20,8 @@ body {
 
 .footer {
     height: 60px;
-    background-color: #f5f5f5;
-    border-top: 1px solid #ddd;
+    /*background-color: #f5f5f5;
+    border-top: 1px solid #ddd;*/
     padding-top: 20px;
 }
 
@@ -118,3 +122,9 @@ a.desc:after {
 .nav > li > form > button.logout:focus {
     outline: none;
 }
+/*
+.navbar-inverse {
+    background-color: #F5F5F5;
+    border-color: #F5F5F5;
+}
+*/

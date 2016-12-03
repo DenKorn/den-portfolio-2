@@ -35,6 +35,7 @@ class Projects extends \yii\db\ActiveRecord
             [['complete_date'], 'safe'],
             [['title'], 'string', 'max' => 50],
             [['link'], 'string', 'max' => 200],
+            [['has_image'], 'boolean'],
         ];
     }
 
