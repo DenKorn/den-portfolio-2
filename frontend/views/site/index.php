@@ -19,7 +19,8 @@ AppAsset::register($this);
     <meta charset="<?= Yii::$app->charset ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?= Html::csrfMetaTags() ?>
-    <title><?= Html::encode($this->title) ?></title>
+    <title>DENKORN portfolio</title>
+    <link href="favicon.ico" rel="icon" type="image/x-icon" />
     <?php $this->head() ?>
 </head>
 <body>
@@ -48,9 +49,12 @@ AppAsset::register($this);
     ?>
     <canvas style="position: absolute; left: 0; top: 0;"></canvas>
     <div class="loader hided"></div> <!--Remove "hided" class to show loader-->
-    <div id="content">
 
-    </div>
+        <div id="container">
+            <div id="message">
+
+            </div>
+        </div>
 
 </div>
 

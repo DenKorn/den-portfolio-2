@@ -28,10 +28,6 @@ class SiteController extends Controller
                         'allow' => true,
                     ],
                     [
-                        'actions' => ['init'],
-                        'allow' => true,
-                    ],
-                    [
                         'actions' => ['logout', 'index'],
                         'allow' => true,
                         'roles' => ['@'],
@@ -79,7 +75,6 @@ class SiteController extends Controller
         if (!Yii::$app->user->isGuest) {
             return $this->goHome();
         }
-
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
             return $this->goBack();
@@ -88,11 +83,6 @@ class SiteController extends Controller
                 'model' => $model,
             ]);
         }
-    }
-
-    public function actionInit() {
-        $user = User::findOne(1);
-        return var_export($user);
     }
 
     /**

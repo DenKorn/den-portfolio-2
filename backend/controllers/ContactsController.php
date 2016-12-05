@@ -5,6 +5,7 @@ namespace backend\controllers;
 use Yii;
 use common\models\Contacts;
 use common\models\ContactsSearch;
+use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -20,6 +21,16 @@ class ContactsController extends Controller
     public function behaviors()
     {
         return [
+            'access' => [
+                'class' => AccessControl::className(),
+                'rules' => [
+                    [
+                        'actions' => ['view','create','update','delete','index'],
+                        'roles' => ['@'],
+                        'allow' => true
+                    ]
+                ],
+            ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [

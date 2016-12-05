@@ -17,7 +17,8 @@ class AppAsset extends AssetBundle
     ];
     public $js = [
         'js/main.js',
-        'js/constellation.js'
+        'js/constellation.js',
+        'js/text-animated-input.js'
     ];
     public $depends = [
         'yii\web\YiiAsset',

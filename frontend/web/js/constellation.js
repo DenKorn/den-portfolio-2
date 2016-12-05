@@ -23,7 +23,7 @@ if (!window.requestAnimationFrame) {
 				},
 				line: {
 					color: 'rgba(255, 255, 255, .5)',
-					width: 0.4
+					width: 0.35
 				},
 				position: {
 					x: 0, // This value will be overwritten at startup
@@ -101,17 +101,17 @@ if (!window.requestAnimationFrame) {
 								context.closePath();
 							}
 						}
-					}
-				}
-			}
-		};
+		}
+	}
+}
+};
 
-		this.createStars = function () {
-			var length = config.length,
-				star,
-				i;
+this.createStars = function () {
+	var length = config.length,
+		star,
+		i;
 
-			context.clearRect(0, 0, canvas.width, canvas.height);
+	context.clearRect(0, 0, canvas.width, canvas.height);
 
 			for (i = 0; i < length; i++) {
 				config.stars.push(new Star());
@@ -120,6 +120,9 @@ if (!window.requestAnimationFrame) {
 				star.create();
 			}
 
+			//todo сделать зависимыми от музыки
+			//context.strokeStyle = "#f00";
+			//context.fillStyle = "#f00";
 			star.line();
 			star.animate();
 		};

@@ -7,7 +7,8 @@ $this->title = 'My Yii Application';
     <div class="jumbotron">
         <h1>Welcome!</h1>
 
-        <p class="lead">This is adinistration page of your portfolio! You can modify any content of your portfolio here</p>
+        <p class="lead">This is administration page of your portfolio! You can modify any content of your portfolio here and
+        then check out how much visitors you had</p>
 
     </div>
 
@@ -15,34 +16,25 @@ $this->title = 'My Yii Application';
 
         <div class="row">
             <div class="col-lg-4">
-                <h2>Heading 1</h2>
+                <h2>Step 1</h2>
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/doc/">Yii Documentation &raquo;</a></p>
+                <p>Well, if you see this page, then first step have done yet. You installed site and initiated database for it.</p>
             </div>
             <div class="col-lg-4">
-                <h2>Heading</h2>
+                <h2>Step 2</h2>
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
+                <p>Fill data into database about you. You can tell the world about you in general, about your skills,
+                    finished projects and also you can left some data to let somebody contact you.</p>
 
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/forum/">Yii Forum &raquo;</a></p>
+                <p><a class="btn btn-default" href="/den-portfolio-2/admin/common">Common information &raquo;</a></p>
             </div>
             <div class="col-lg-4">
-                <h2>Heading</h2>
+                <h2>Step 3</h2>
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
+                <p>When you dealt with portfolio filling, you can take a rest and wait until some interesting visitors check your webpage out.
+                You can always check users activity via 'activity' main menu item.</p>
 
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/extensions/">Yii Extensions &raquo;</a></p>
+                <p><a class="btn btn-default" href="/den-portfolio-2/admin/activity">View visitors activity &raquo;</a></p>
             </div>
         </div>
 

@@ -2,11 +2,25 @@
 
 namespace frontend\controllers;
 
+use common\models\Achievements;
+use common\models\CommonInfo;
+use common\models\Projects;
 use Yii;
 use yii\web\Response;
 
 class ApiController extends \yii\web\Controller
 {
+
+    function getCommonInfoItems($like) {
+        $results = CommonInfo::find()->where(['LIKE','info_header', $like.'%',false])->all();
+        $output = [];
+        foreach ($results as $result) {
+            $attributes = $result->getAttributes();
+            $output[$attributes['info_header']] = $attributes['info_content'];
+        }
+        return $output;
+    }
+
     public function beforeAction($action)
     {
         Yii::$app->response->format = Response::FORMAT_XML;
@@ -20,37 +34,38 @@ class ApiController extends \yii\web\Controller
 
     public function actionGetAbout()
     {
-        return $this->render('get-about');
+        return $this->getCommonInfoItems('about');
     }
 
-    public function actionGetLanding()
+    public function actionGetProjects()
     {
-        return $this->render('get-landing');
+        $results = Projects::find()->all();
+        $output = [];
+        foreach ($results as $result) {
+            $attributes = $result->getAttributes();
+            $output[$attributes['info_header']] = $attributes['info_content'];
+        }
+        return $output;
     }
 
-    public function actionGetProject()
+    public function actionGetAchievements()
     {
-        return $this->render('get-project');
-    }
-
-    public function actionGetProjectsList()
-    {
-        return $this->render('get-projects-list');
-    }
-
-    public function actionGetSkills()
-    {
-        return 0;
+        $results = Achievements::find()->all();
+        $output = [];
+        foreach ($results as $result) {
+            $attributes = $result->getAttributes();
+            $output[$attributes['info_header']] = $attributes['info_content'];
+        }
+        return $output;
     }
 
     public function actionIndex()
     {
-        return ['lol' => 123, 'piz' => 321];
+        return $this->getCommonInfoItems('home');
     }
 
-    public function actionSendRequest()
+    public function actionUpdateStats()
     {
-        return $this->render('send-request');
     }
 
 }

@@ -23,7 +23,8 @@ class m161129_002010_db_exp extends Migration
             'description' => $this->text(),
             'sort_order' => $this->integer()->unsigned()->null(),
             'complete_date' => $this->dateTime()->null(),
-            'link' => $this->char(200)
+            'link' => $this->char(200),
+            'has_image' => $this->boolean()->defaultValue(false),
         ], $tableOptions);
 
         $this->createTable('contacts', [
