@@ -2,6 +2,7 @@
 
 const SITE_DOMAIN = "http://localhost/den-portfolio-2";
 let mainMenu;
+let loader;
 
 function XML2jsobj(node) {
     var	data = {};
@@ -42,6 +43,14 @@ function XML2jsobj(node) {
     return data;
 }
 
+function showLoader() {
+    loader.classList.remove('hidden');
+}
+
+function hideLoader() {
+    loader.classList.add('hidden');
+}
+
 class Menu {
     constructor(menuItems, messagingInterface, outputContainer) {
         this.currentPosition = 'home';
@@ -65,7 +74,6 @@ class Menu {
     }
 
     postMessagesPage(from) {
-        this.messaging.clearMessages();
         let counter = 0;
         for(let i in from) {
             this.messaging.pushMessage(from[i], counter++ * 500 + Math.random() * 2000);
@@ -77,12 +85,15 @@ class Menu {
 
     goToHome(loading = false) {
         if(this.currentPosition !== 'home' || loading){
+            this.messaging.clearMessages();
             if(!this.items.home.data){
                 let self = this;
                 let xhr = new XMLHttpRequest();
+                showLoader();
                 xhr.onload = (evt) => {
                     let xhr = evt.target;
                     self.items.home.data = XML2jsobj(xhr.responseXML.documentElement);
+                    hideLoader();
                     self.goToHome(true);
                 };
                 xhr.open('get', `${SITE_DOMAIN}/api`, true);
@@ -96,12 +107,15 @@ class Menu {
 
     goToAbout(loading = false) {
         if(this.currentPosition !== 'about' || loading){
+            this.messaging.clearMessages();
             if(!this.items.about.data){
                 let self = this;
                 let xhr = new XMLHttpRequest();
+                showLoader();
                 xhr.onload = (evt) => {
                     let xhr = evt.target;
                     self.items.about.data = XML2jsobj(xhr.responseXML.documentElement);
+                    hideLoader();
                     self.goToAbout(true);
                 };
                 xhr.open('get', `${SITE_DOMAIN}/api/get-about`, true);
@@ -113,14 +127,17 @@ class Menu {
         }
     }
 
-    goToProjects() {
+    goToProjects(loading = false) {
         if(this.currentPosition !== 'projects' || loading){
+            this.messaging.clearMessages();
             if(!this.items.projects.data){
                 let self = this;
                 let xhr = new XMLHttpRequest();
+                showLoader();
                 xhr.onload = (evt) => {
                     let xhr = evt.target;
                     self.items.projects.data = XML2jsobj(xhr.responseXML.documentElement);
+                    hideLoader();
                     self.goToProjects(true);
                 };
                 xhr.open('get', `${SITE_DOMAIN}/api/get-projects`, true);
@@ -132,16 +149,46 @@ class Menu {
         }
     }
 
-    goToAchievements() {
-        if(this.currentPosition !== 'achievements'){
-
+    goToAchievements(loading = false) {
+        if(this.currentPosition !== 'achievements' || loading){
+            this.messaging.clearMessages();
+            if(!this.items.achievements.data){
+                let self = this;
+                let xhr = new XMLHttpRequest();
+                showLoader();
+                xhr.onload = (evt) => {
+                    let xhr = evt.target;
+                    self.items.achievements.data = XML2jsobj(xhr.responseXML.documentElement);
+                    hideLoader();
+                    self.goToAchievements(true);
+                };
+                xhr.open('get', `${SITE_DOMAIN}/api/get-achievements`, true);
+                xhr.send(null);
+            } else {
+                this.postMessagesPage(this.items.achievements.data);
+            }
             this.currentPosition = 'achievements';
         }
     }
 
-    goToContact() {
-        if(this.currentPosition !== 'contact'){
-
+    goToContact(loading = false) {
+        if(this.currentPosition !== 'contact' || loading){
+            this.messaging.clearMessages();
+            if(!this.items.contact.data){
+                let self = this;
+                let xhr = new XMLHttpRequest();
+                showLoader();
+                xhr.onload = (evt) => {
+                    let xhr = evt.target;
+                    self.items.contact.data = XML2jsobj(xhr.responseXML.documentElement);
+                    hideLoader();
+                    self.goToContact(true);
+                };
+                xhr.open('get', `${SITE_DOMAIN}/api/get-contacts`, true);
+                xhr.send(null);
+            } else {
+                this.postMessagesPage(this.items.contact.data);
+            }
             this.currentPosition = 'contact';
         }
     }
@@ -166,6 +213,8 @@ document.addEventListener('DOMContentLoaded', function() {
             achievements : document.querySelector('#main-btn-achievements a'),
             contact : document.querySelector('#main-btn-contact a')},
         AniMessages, document.querySelector('#message   '));
+
+    loader = document.querySelector('.loader');
 
     document.querySelector('#main-btn-home a').click();
 });

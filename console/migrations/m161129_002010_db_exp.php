@@ -24,7 +24,7 @@ class m161129_002010_db_exp extends Migration
             'sort_order' => $this->integer()->unsigned()->null(),
             'complete_date' => $this->dateTime()->null(),
             'link' => $this->char(200),
-            'has_image' => $this->boolean()->defaultValue(false),
+            'has_image' => $this->boolean()->defaultValue(true),
         ], $tableOptions);
 
         $this->createTable('contacts', [
@@ -39,6 +39,10 @@ class m161129_002010_db_exp extends Migration
             'content' => $this->text()->null(),
             'time' => $this->dateTime()->null()
         ], $tableOptions);
+
+        $this->createTable('activity', [
+            'date' => 'timestamp default current_timestamp'
+        ]);
     }
 
     public function down()

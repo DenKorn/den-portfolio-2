@@ -18,7 +18,9 @@ $this->title = 'My Yii Application';
             <div class="col-lg-4">
                 <h2>Step 1</h2>
 
-                <p>Well, if you see this page, then first step have done yet. You installed site and initiated database for it.</p>
+                <p>Well, if you see this page, then first step have done yet. You installed site and initiated database for it. Try to check
+                your site out!</p>
+                <p><a class="btn btn-default" href="/den-portfolio-2/">Check site &raquo;</a></p>
             </div>
             <div class="col-lg-4">
                 <h2>Step 2</h2>

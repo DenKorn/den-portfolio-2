@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
+use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\Projects */
@@ -10,6 +11,7 @@ $this->title = $model->title;
 $this->params['breadcrumbs'][] = ['label' => 'Projects', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
+
 <div class="projects-view">
 
     <h1><?= Html::encode($this->title) ?></h1>
@@ -23,7 +25,14 @@ $this->params['breadcrumbs'][] = $this->title;
                 'method' => 'post',
             ],
         ]) ?>
-        <?= Html::a('Upload new image', ['upload-image', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+
+        <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]) ?>
+
+        <?= $form->field($modelFile, 'file')->fileInput() ?>
+
+        <button class="btn btn-primary">Upload new image</button>
+
+        <?php ActiveForm::end() ?>
     </p>
 
     <?= DetailView::widget([

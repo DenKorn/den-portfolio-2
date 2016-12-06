@@ -2,13 +2,16 @@
 //изоображения именуются по id проекта
 namespace backend\controllers;
 
+
 use Yii;
+use common\models\UploadForm;
 use common\models\Projects;
 use common\models\ProjectsSearch;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
 
 /**
  * ProjectsController implements the CRUD actions for Projects model.
@@ -62,8 +65,18 @@ class ProjectsController extends Controller
      */
     public function actionView($id)
     {
+        $modelFile = new UploadForm();
+        if(Yii::$app->request->isPost) {
+            $modelFile->file = UploadedFile::getInstance($modelFile,'file');
+
+            if($modelFile->file && $modelFile->validate()) {
+                $modelFile->file->saveAs(Yii::getAlias('@frontend/web/storage/projects/').$id.'.'.$modelFile->file->extension);
+            }
+        }
+
         return $this->render('view', [
             'model' => $this->findModel($id),
+            'modelFile' => $modelFile
         ]);
     }
 

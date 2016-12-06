@@ -47,12 +47,11 @@ AppAsset::register($this);
     ]);
     NavBar::end();
     ?>
-    <canvas style="position: absolute; left: 0; top: 0;"></canvas>
-    <div class="loader hided"></div> <!--Remove "hided" class to show loader-->
+    <canvas style="position: fixed; left: 0; top: 0;"></canvas>
+    <div class="loader hidden"></div> <!--Remove "hidden" class to show loader-->
 
         <div id="container">
             <div id="message">
-
             </div>
         </div>
 

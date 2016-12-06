@@ -29,7 +29,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'description:ntext',
             'sort_order',
             'complete_date',
-            // 'link',
+            'link',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
